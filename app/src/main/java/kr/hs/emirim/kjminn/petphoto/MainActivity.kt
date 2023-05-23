@@ -3,11 +3,7 @@ package kr.hs.emirim.kjminn.petphoto
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.RadioGroup
+import android.widget.*
 
 class MainActivity : AppCompatActivity() {
     lateinit var checkStart:CheckBox
@@ -31,6 +27,15 @@ class MainActivity : AppCompatActivity() {
                 linear.visibility = View.VISIBLE
             }else{
                 linear.visibility = View.INVISIBLE
+            }
+        }
+        btnDone.setOnClickListener{
+            when(rg.checkedRadioButtonId){
+                R.id.radio_dog->imgv.setImageResource(R.drawable.dog)
+                R.id.radio_cat->imgv.setImageResource(R.drawable.cat)
+                R.id.radio_rabbit->imgv.setImageResource(R.drawable.rabbit)
+                else -> Toast.makeText(applicationContext, "라디오 버튼이 선택되지 않았습니다", Toast.LENGTH_SHORT).show()
+
             }
         }
     }
